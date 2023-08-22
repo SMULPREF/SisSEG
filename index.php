@@ -101,8 +101,4 @@
       font-size: 5rem;
   }
 
-  .btn{
-    width: 80px;
-    height: 40px;
-  }
   </style>
