@@ -2,6 +2,9 @@
 
 include_once '../conexao.php';
 
+$erroMessage = "";
+$successMessage = "";
+
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
@@ -28,9 +31,9 @@ VALUES ('$nome', '$email', '$unidadeDT', '$usuario', '$aprova', '$portal', '$sei
 
 if ($conn->query($sql) === true) {
     header('Location: telaCadastroPermissao.php');
-    echo '<script>alert("Cadastro feito com sucesso ' . $usuario . '");</script>';
+    $successMessage = '<script>alert("Cadastro feito com sucesso ' . $usuario . '");</script>';
 } else {
-    echo '<script>alert("Erro ao inserir dados: ' . $conn->error . '");</script>';
+    $erroMessage = '<script>alert("Erro ao inserir dados: ' . $conn->error . '");</script>';
 }
 
 $conn->close();

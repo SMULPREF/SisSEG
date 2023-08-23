@@ -1,4 +1,6 @@
-
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +9,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style_sidebar_.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <?php include 'navbar.php'; ?>
 </head>
     <body>
+        <div class="container">
         <div class="container card bg-glass busca-section">
             <form action="" class="card-body px-4 py-5 px-md-5">
                 <label for="" class="form-label">RF/RG</label>
                 <div class="div-busca">
-                    <input type="text" placeholder="Digite o RF ou RG desejado..." class="form-control campo-busca">
-                    <input type="submit" value="Buscar" class="btn btn-primary btn-block mb-4 botao-busca">
+                    <input type="text" placeholder="Digite o RF ou RG desejado..." value="<?php echo $_SESSION['SesNome'];?>" class=" campo-busca">
+                    <input type="submit" value="Buscar" class="btn btn-primary mb-4 botao-busca">
                 </div>
             </form>
         </div>
@@ -159,13 +165,18 @@
             </div>
             </form>
         </div>
+        </div>
+
     </body>
 </html>
 
 <style>
+
+
+
     .container{
         max-width: 1400px;
-        margin-top: 10px;
+        margin: 10px 30px 0;
     }
     .div-busca{
         display: flex;
