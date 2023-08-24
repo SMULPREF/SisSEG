@@ -11,7 +11,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style_sidebar_.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <?php include 'navbar.php'; ?>
+    <?php include '../navbar.php'; ?>
 </head>
     <body>
         <div class="container">
