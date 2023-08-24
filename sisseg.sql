@@ -29,6 +29,19 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS `servidores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL DEFAULT '0',
+  `user` varchar(50) NOT NULL DEFAULT '0',
+  `email` varchar(255) NOT NULL DEFAULT '0',
+  `rf` varchar(7) NOT NULL DEFAULT '0',
+  `unidade` varchar(255) NOT NULL DEFAULT '0',
+  `obs` varchar(255) NOT NULL DEFAULT '0',
+  `status_user` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login` (`user`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 -- Exportação de dados foi desmarcado.
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
