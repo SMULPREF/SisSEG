@@ -11,6 +11,9 @@
     <form action="insereUsuarios.php" method="post">
         <input type="submit" name="executar" value="Atualizar Banco de Dados">
     </form>
+    <form action="insereUnidade.php" method="post">
+        <input type="submit" name="executar" value="Inserir Unidades">
+    </form>
 </body>
 
 </html>

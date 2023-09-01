@@ -26,7 +26,15 @@ if (isset($_POST['executar'])) {
             $db_password = "";
             $db_name = "sisseg";
 
-            $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);     
+            $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
+
+            // Conectar ao banco de dados remoto sgu
+            $sgu_db_host = "10.75.32.125";
+            $sgu_db_user = "root";
+            $sgu_db_password = "Hta123P";
+            $sgu_db_name = "SGU";
+
+            $sgu_db_connection = mysqli_connect($sgu_db_host, $sgu_db_user, $sgu_db_password, $sgu_db_name);
 
             if (!$db_connection) {
                 die("Falha na conexão com o banco de dados: " . mysqli_connect_error());
@@ -78,7 +86,41 @@ if (isset($_POST['executar'])) {
                         if (!$insert_result) {
                             echo "Erro ao inserir registro: " . mysqli_error($db_connection) . "<br>";
                         }
-                    }                                   
+                    }
+
+
+                    if (!$sgu_db_connection) {
+                        die("Falha na conexão com o banco de dados remoto SGU: " . mysqli_connect_error());
+                    }
+
+                    // Obter o nome da tabela para o mês atual
+                    $ano_mes = date('Y_m');
+                    $sgu_table_name = $ano_mes;
+
+                    // Consultar a tabela no banco de dados remoto SGU
+                    $sgu_query = "SELECT cpRF, cpnomesetor2 FROM $sgu_table_name";
+                    $sgu_result = mysqli_query($sgu_db_connection, $sgu_query);
+
+                    if (!$sgu_result) {
+                        die("Erro ao consultar tabela no banco de dados remoto SGU: " . mysqli_error($sgu_db_connection));
+                    }
+
+                    // Conectar ao banco de dados sisseg
+                    // (você já fez isso em seu código existente)
+
+                    // Iterar sobre os resultados da consulta SGU e atualizar a tabela sisseg
+                    while ($row = mysqli_fetch_assoc($sgu_result)) {
+                        $cpRF = $row['cpRF'];
+                        $cpnomesetor2 = $row['cpnomesetor2'];
+
+                        // Atualizar a tabela sisseg com base na correspondência de cpRF
+                        $update_query = "UPDATE servidores SET unidade = '$cpnomesetor2' WHERE rf = '$cpRF'";
+                        $update_result = mysqli_query($db_connection, $update_query);
+
+                        if (!$update_result) {
+                            echo "Erro ao atualizar registro: " . mysqli_error($db_connection) . "<br>";
+                        }
+                    }
                 }
             } else {
                 echo "Nenhum usuário encontrado.";
@@ -88,10 +130,14 @@ if (isset($_POST['executar'])) {
         }
 
         // Fechar a conexão LDAP
-        ldap_close($ldap_connection);        
+        ldap_close($ldap_connection);
+
+        if ($sgu_db_connection) {
+            mysqli_close($sgu_db_connection);
+        }
 
         if ($db_connection) {
-            mysqli_close($db_connection);
+            mysqli_close($sgu_db_connection);
         }     
 
     } else {
@@ -99,5 +145,11 @@ if (isset($_POST['executar'])) {
     }
     echo "O script foi executado com sucesso.";
 }
+
+// Fechar a conexão com o banco de dados remoto SGU
+
+
+// Fechar a conexão com o banco de dados
+
 
 header("Location: principal.php");
