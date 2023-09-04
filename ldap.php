@@ -51,7 +51,7 @@ if (empty($_REQUEST))
     $_SESSION['SesE-mail'] = $emailfr;
     $_SESSION['Perm'] =  $resultado['permissao'];
     $_SESSION['Status'] =  $resultado['statususer'];
-    header('location:templates/telaCadastroPermissao.php');
+    header('location:telaCadastroPermissao.php');
 }
 ?>
 
