@@ -46,7 +46,8 @@ if ($resultado->num_rows > 0) {
         if ($resultado_sgu->num_rows > 0) {
             $row_sgu = $resultado_sgu->fetch_assoc();
             $cpnomesetor2 = $row_sgu["cpnomesetor2"];
-            $sigla_unidade = '';
+
+	$sigla_unidade = '';
 
             switch($cpnomesetor2){
 
@@ -317,10 +318,22 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "GEOINFO";
                     break;
             }
-
-            // Atualizando o campo "unidade" na tabela "servidores" no banco de dados Sisseg
-            $update_sql = "UPDATE servidores SET unidade = '$cpnomesetor2', sigla_unidade ='$sigla_unidade'  WHERE rf = '$cpRF'";
-
+            
+            // Verificação e atualização do campo "unidade" e "sigpec" na tabela "servidores" no banco de dados Sisseg
+            if ($row["unidade"] != $cpnomesetor2) {
+                $update_sql = "UPDATE servidores SET unidade = '$cpnomesetor2', sigpec = 2, sigla_unidade = '$sigla_unidade' WHERE rf = '$cpRF'";
+            } else {
+                $update_sql = "UPDATE servidores SET sigpec = 1 WHERE rf = '$cpRF'";
+            }
+            
+            if ($sisseg_conn->query($update_sql) === TRUE) {
+                echo "Atualização da tabela 'servidores' no banco de dados Sisseg foi bem-sucedida.";
+            } else {
+                echo "Erro ao atualizar a tabela 'servidores' no banco de dados Sisseg: " . $sisseg_conn->error;
+            }
+        } else {
+            // Se não houver correspondência, definir "sigpec" como 3
+            $update_sql = "UPDATE servidores SET sigpec = 3 WHERE rf = '$cpRF'";
             if ($sisseg_conn->query($update_sql) === TRUE) {
                 echo "Atualização da tabela 'servidores' no banco de dados Sisseg foi bem-sucedida.";
             } else {

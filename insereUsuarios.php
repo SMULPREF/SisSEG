@@ -100,4 +100,4 @@ if (isset($_POST['executar'])) {
     echo "O script foi executado com sucesso.";
 }
 
-header("Location: principal.php");
+header("Location: painelcontrole.php");
