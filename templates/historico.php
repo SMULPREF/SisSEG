@@ -11,7 +11,7 @@
     
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <?php include('navbar.php');?>
+    <?php include('../sidebar.php');?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style_sidebar_.css">
 
@@ -26,8 +26,8 @@
                         <th scope="col">UNIDADE</th>
                         <th scope="col">USUARIO</th>
                         <th scope="col">USUARIO SOLICITANTE</th>
-                        <th scope="col">SETOR</th>
                         <th scope="col">ATRIBUÍÇÃO</th>
+                        <th scope="col">SIGLA UNIDADE</th>
                         <th scope="col">NOME USUARIO</th>
                         <th scope="col">SOLICITANTE</th>
                         <th scope="col">OCORRENCIA</th>

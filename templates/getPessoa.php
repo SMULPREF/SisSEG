@@ -21,8 +21,8 @@
             echo "<td>" . $row['unidade'] . "</td>";
             echo "<td>" . $row['usuario'] . "</td>";
             echo "<td>" . $row['usario_solicitante'] . "</td>";
-            echo "<td>" . $row['setor_id'] . "</td>";
             echo "<td>" . $row['nivel_atribuido'] . "</td>";
+            echo "<td>" . $row['sigla_unidade'] . "</td>";
             echo "<td>" . $row['nome_usuario'] . "</td>";
             echo "<td>" . $row['nome_solicitante'] . "</td>";
 
@@ -37,8 +37,10 @@
                     echo "<td> Alteração </td>";
                     break;
             }
-
-            echo "<td>" . $row['data_ocorrencia'] . "</td>";
+            
+            $data_ocorrencia = $row['data_ocorrencia'];
+            $dataHoraFormatada = date('d/m/Y H:i:s', strtotime($data_ocorrencia));
+            echo "<td>" . $dataHoraFormatada . "</td>";
             echo "<td>" . $row['nome_responsavel'] . "</td>";
             echo "<td>" . $row['observacoes'] . "</td>";
 

@@ -5,7 +5,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $busca = $_POST["busca"];
     
-            $query = "SELECT nome, user, email, rf, obs FROM servidores WHERE user = '$busca'";
+            $query = "SELECT nome, user, email, rf, obs, sigla_unidade FROM servidores WHERE user = '$busca'";
             $result = $conn->query($query);
     
             if ($result->num_rows > 0) {
@@ -15,6 +15,7 @@
                     $email = $row["email"];
                     $rf = $row["rf"];
                     $obs = $row["obs"];
+                    $sigla = $row["sigla_unidade"];
                 }
             }
         }
