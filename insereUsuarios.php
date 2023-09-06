@@ -67,12 +67,12 @@ if (isset($_POST['executar'])) {
 
                     mysqli_set_charset($db_connection, "utf8");
 
-                    $check_query = "SELECT * FROM servidores WHERE user = '$login'";
+                    $check_query = "SELECT * FROM servidores WHERE usuario = '$login'";
                     $check_result = mysqli_query($db_connection, $check_query);
 
                     if (mysqli_num_rows($check_result) == 0) {
                         // O registro não existe, então inserir
-                        $insert_query = "INSERT INTO servidores (user, nome, email, rf) VALUES ('$login', '$nome', '$email', '$rf')";
+                        $insert_query = "INSERT INTO servidores (usuario, nome, email, rf, status_user) VALUES ('$login', '$nome', '$email', '$rf', 'Ativo')";
                         $insert_result = mysqli_query($db_connection, $insert_query);
 
                         if (!$insert_result) {

@@ -47,11 +47,11 @@ if ($resultado->num_rows > 0) {
             $row_sgu = $resultado_sgu->fetch_assoc();
             $cpnomesetor2 = $row_sgu["cpnomesetor2"];
 
-	$sigla_unidade = '';
+            $sigla_unidade = '';
 
-            switch($cpnomesetor2){
+            switch ($cpnomesetor2) {
 
-                //Unidades do Gabinete e Assessorias
+                    //Unidades do Gabinete e Assessorias
 
                 case 'SECRETARIA MUNICIPAL DE URBANISMO E LICENCIAMENTO':
                     $sigla_unidade = "Servidor ainda não alocado";
@@ -77,14 +77,14 @@ if ($resultado->num_rows > 0) {
                 case 'SUPERVISAO DE LICENCIAMENTO ELETRONICO E ANALISE D':
                     $sigla_unidade = "STEL";
                     break;
-                    
-                //Unidades da GTEC
+
+                    //Unidades da GTEC
 
                 case 'UNIDADE DE GESTAO TECNICA DE ANALISE DE REGULARIZA':
                     $sigla_unidade = "GTEC";
                     break;
-                
-                //Unidades da CAF
+
+                    //Unidades da CAF
 
                 case 'COORDENADORIA DE ADMINISTRACAO E FINANCAS':
                     $sigla_unidade = "CAF";
@@ -101,7 +101,7 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE LICITACOES E CONTRATOS':
                     $sigla_unidade = "CAF/DLC";
                     break;
-                    
+
                 case 'DIVISAO DE ORCAMENTO E FINANCAS':
                     $sigla_unidade = "CAF/DOF";
                     break;
@@ -110,7 +110,7 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "CAF/DSUP";
                     break;
 
-                //Unidades da CAP
+                    //Unidades da CAP
 
                 case 'COORDENADORIA DE ATENDIMENTO AO PUBLICO':
                     $sigla_unidade = "CAP";
@@ -123,12 +123,12 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE PROCESSOS COMUNICADOS E INDEFERIDOS':
                     $sigla_unidade = "CAP/DPD";
                     break;
-                
+
                 case 'DIVISAO DE PROTOCOLO':
                     $sigla_unidade = "CAP/DEPROT";
                     break;
 
-                //Unidades da CASE
+                    //Unidades da CASE
 
                 case 'COORDENADORIA DE CADASTRO, ANALISE DE DADOS E SIST':
                     $sigla_unidade = "CASE";
@@ -146,7 +146,7 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "CASE/DLE";
                     break;
 
-                //Unidades da CEPEUC
+                    //Unidades da CEPEUC
 
                 case 'COORDENADORIA DE CONTROLE DA FUNCAO SOCIAL DA PROP':
                     $sigla_unidade = "CEPEUC";
@@ -155,13 +155,13 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE CADASTRO E INFORMACOES TERRITORIAIS':
                     $sigla_unidade = "CEPEUC/DCIT";
                     break;
-                
+
                 case 'DIVISAO DE VISTORIA E FISCALIZACAO':
                     $sigla_unidade = "CEPEUC/DVF";
                     break;
 
-                //Unidades da SERVIN
-                    
+                    //Unidades da SERVIN
+
                 case 'COORDENADORIA DE EDIFICACAO DE SERVICOS E USO INST':
                     $sigla_unidade = "SERVIN";
                     break;
@@ -174,8 +174,8 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "SERVIN/DSIMP";
                     break;
 
-                //Unidades da COMIN
-                    
+                    //Unidades da COMIN
+
                 case 'COORDENADORIA DE EDIFICACAO DE USO COMERCIAL E IND':
                     $sigla_unidade = "COMIN";
                     break;
@@ -188,8 +188,8 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "COMIN/DCIMP";
                     break;
 
-                //Unidades da CONTRU
-                    
+                    //Unidades da CONTRU
+
                 case 'COORDENADORIA DE CONTROLE E USO DE IMOVEIS':
                     $sigla_unidade = "CONTRU";
                     break;
@@ -210,7 +210,7 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "CONTRU/DSUS";
                     break;
 
-                //Unidades da RESID
+                    //Unidades da RESID
 
                 case 'COORDENADORIA DE EDIFICACAO DE USO RESIDENCIAL':
                     $sigla_unidade = "RESID";
@@ -227,9 +227,9 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE USO RESIDENCIAL UNIFAMILIAR':
                     $sigla_unidade = "RESID";
                     break;
-                  
-                //Unidades da ILUME
-                    
+
+                    //Unidades da ILUME
+
                 case 'COORDENADORIA DE GESTAO DA REDE MUNICIPAL DE ILUMI':
                     $sigla_unidade = "ILUME";
                     break;
@@ -237,7 +237,7 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE MANUTENCAO E CONTROLE':
                     $sigla_unidade = "ILUME";
                     break;
-                
+
                 case 'DIVISAO DE PLANEJAMENTO':
                     $sigla_unidade = "ILUME";
                     break;
@@ -246,26 +246,26 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "ILUME";
                     break;
 
-                //Unidades da DEUSO
-                    
+                    //Unidades da DEUSO
+
                 case 'COORDENADORIA DE LEGISLACAO DE USO E OCUPACAO DO S':
                     $sigla_unidade = "DEUSO";
                     break;
-                
+
                 case 'DIVISAO DE MONITORAMENTO DO USO DO SOLO':
                     $sigla_unidade = "DEUSO/DMUS";
                     break;
-                
+
                 case 'DIVISAO DE NORMATIZACAO DO USO DO SOLO':
                     $sigla_unidade = "DEUSO/DNUS";
                     break;
-                
+
                 case 'DIVISAO DE SISTEMA DE INFORMACOES SOBRE ZONEAMENTO':
                     $sigla_unidade = "DEUSO/DSIZ";
-                    break;    
+                    break;
 
-                //Unidades da PARHIS
-                    
+                    //Unidades da PARHIS
+
                 case 'COORDENADORIA DE PARCELAMENTO DO SOLO E DE HABITAC':
                     $sigla_unidade = "PARHIS";
                     break;
@@ -277,13 +277,13 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE HABITACAO DE MERCADO POPULAR':
                     $sigla_unidade = "PARHIS/DHMP";
                     break;
-                
+
                 case 'DIVISAO DE PARCELAMENTO DO SOLO':
                     $sigla_unidade = "PARHIS/DPS";
                     break;
 
-                //Unidades da PLANURB
-                    
+                    //Unidades da PLANURB
+
                 case 'COORDENADORIA DE PLANEJAMENTO URBANO':
                     $sigla_unidade = "PLANURB";
                     break;
@@ -299,9 +299,9 @@ if ($resultado->num_rows > 0) {
                 case 'DIVISAO DE ORDENAMENTO TERRITORIAL':
                     $sigla_unidade = "PLANURB/DOT";
                     break;
-                
-                //Unidades da GEOINFO
-                    
+
+                    //Unidades da GEOINFO
+
                 case 'COORDENADORIA DE PRODUCAO E ANALISE DE INFORMACAO':
                     $sigla_unidade = "GEOINFO";
                     break;
@@ -318,14 +318,15 @@ if ($resultado->num_rows > 0) {
                     $sigla_unidade = "GEOINFO";
                     break;
             }
-            
+
             // Verificação e atualização do campo "unidade" e "sigpec" na tabela "servidores" no banco de dados Sisseg
             if ($row["unidade"] != $cpnomesetor2) {
-                $update_sql = "UPDATE servidores SET unidade = '$cpnomesetor2', sigpec = 2, sigla_unidade = '$sigla_unidade' WHERE rf = '$cpRF'";
+                $unidade_antiga = $row["sigla_unidade"];
+                $update_sql = "UPDATE servidores SET unidade = '$cpnomesetor2', sigpec = 2, sigla_unidade = '$sigla_unidade', unidade_antiga = '$unidade_antiga' WHERE rf = '$cpRF'";
             } else {
                 $update_sql = "UPDATE servidores SET sigpec = 1 WHERE rf = '$cpRF'";
             }
-            
+
             if ($sisseg_conn->query($update_sql) === TRUE) {
                 echo "Atualização da tabela 'servidores' no banco de dados Sisseg foi bem-sucedida.";
             } else {
