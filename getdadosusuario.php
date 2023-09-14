@@ -7,6 +7,8 @@
     
             $query = "SELECT nome, user, email, rf, obs, sigla_unidade FROM servidores WHERE user = '$busca'";
             $result = $conn->query($query);
+            
+
     
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -17,6 +19,8 @@
                     $obs = $row["obs"];
                     $sigla = $row["sigla_unidade"];
                 }
+            }else {
+                echo "<script>alert('Usuario não encontrado!'); document.location.href='telaCadastroPermissao.php'</script>";
             }
         }
 

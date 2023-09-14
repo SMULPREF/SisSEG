@@ -17,6 +17,24 @@
                 case 1:
                     echo "<td> SIMPROC </td>";
                     break;
+                case 2:
+                    echo "<td> SISSEL </td>";
+                    break;
+                case 3:
+                    echo "<td> APROVA DIGITAL </td>";
+                    break;
+                case 4:
+                    echo "<td> SLCE </td>";
+                    break;
+                case 5:
+                    echo "<td> SLC II </td>";
+                    break;
+                case 6:
+                    echo "<td> PORTAL DE LICENCIAMENTO </td>";
+                    break;
+                case 7:
+                    echo "<td> SISACOE </td>";
+                    break;
             }
             echo "<td>" . $row['unidade'] . "</td>";
             echo "<td>" . $row['usuario'] . "</td>";

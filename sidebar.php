@@ -4,8 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <title>Document</title>
@@ -39,7 +37,7 @@
                 <i class="fa-solid fa-bars-staggered"></i>
 
             </div>
-            <a href="http://localhost/index.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">sair</span> </a>
+            <a href="index.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">sair</span> </a>
         </nav>
     </div>
     <!--Container Main start-->

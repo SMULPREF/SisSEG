@@ -3,7 +3,7 @@ session_start();
 include_once 'unidades.php';
 include_once 'conexao.php';
 include_once 'getdadosusuario.php';
-
+include_once 'addCadastro.php';
 
 ?>
 <!DOCTYPE html>
@@ -25,14 +25,14 @@ include_once 'getdadosusuario.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <?php include_once 'sidebar.php'?>
+    <?php include_once 'sidebar.php' ?>
 </head>
 
 <body>
     <div class="container">
 
         <div class="container title-section">
-            <h2 class="title">Pesquisa</h2>
+            <h2 clAass="title">Pesquisa</h2>
         </div>
         <div class="container card bg-glass busca-section">
             <div class="row">
@@ -40,9 +40,9 @@ include_once 'getdadosusuario.php';
                     <form action="" method="post">
                         <label for="" class="form-label">Usuario</label>
                         <div class="div-busca">
-                            <input type="text" placeholder="Digite o RF ou RG desejado..." name="busca"
-                                class="form-control campo-busca">
-                            <input type="submit" value="Buscar" class="btn btn-primary mb-4 botao-busca">
+                            <input type="text" name="busca" class="form-control campo-busca" required>
+                            <input type="submit" value="Buscar" class="btn btn-primary mb-4 botao-busca"
+                                value="<?php $tetse ?>">
                         </div>
                     </form>
                 </div>
@@ -56,15 +56,16 @@ include_once 'getdadosusuario.php';
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="nome" id="nome" value="<?php echo isset($nomes) ? $nomes : ''; ?>"
-                                class="form-control read" readonly />
+                            <input type="text" maxlength="0" name="nome" id="nome"
+                                value="<?php echo isset($nomes) ? $nomes : ''; ?>" class="form-control readonly"
+                                required />
                             <label class="form-label" for="form6Example1">Nome completo</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="rfrg" id="rfrg" value="<?php echo isset($rf) ? $rf : ''; ?>"
-                                class="form-control read" readonly />
+                            <input type="text" maxlength="0" name="rfrg" id="rfrg"
+                                value="<?php echo isset($rf) ? $rf : ''; ?>" class="form-control readonly" required />
                             <label class="form-label" for="form6Example1">RF/RG</label>
                         </div>
                     </div>
@@ -74,8 +75,9 @@ include_once 'getdadosusuario.php';
 
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="usuario" id="usuario"
-                                value="<?php echo isset($user) ? $user : ''; ?>" class="form-control read" readonly />
+                            <input type="text" maxlength="0" name="usuario" id="usuario"
+                                value="<?php echo isset($user) ? $user : 'root'; ?>" class="form-control readonly"
+                                required />
                             <label class="form-label" for="form6Example2">Usuario</label>
                         </div>
                     </div>
@@ -84,21 +86,21 @@ include_once 'getdadosusuario.php';
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline">
-                            <input type="email" name="email" id="email"
-                                value="<?php echo isset($email) ? $email : ''; ?>" class="form-control read" readonly />
+                            <input type="email" maxlength="0" name="email" id="email"
+                                value="<?php echo isset($email) ? $email : ''; ?>" class="form-control readonly" />
                             <label class="form-label" for="form6Example1">E-MAIL</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="sigla" id="sigla"
-                                value="<?php echo isset($sigla) ? $sigla : ''; ?>" class="form-control read" readonly />
+                            <input type="text" maxlength="0" name="sigla" id="sigla"
+                                value="<?php echo isset($sigla) ? $sigla : ''; ?>" class="form-control readonly" />
                             <label class="form-label" for="form6Example1">Sigla Unidade</label>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="container title-section">
                 <h2 class="title">Cadastro Permissão</h2>
             </div>
@@ -107,32 +109,28 @@ include_once 'getdadosusuario.php';
                     <div class="col-md-3 col-sm-12">
                         <div class="form-outline">
                             <input type="text" name="responsalvepalteracao" id="responsalvepalteracao"
-                                value="<?php echo $_SESSION['SesNome'] ?>" class="form-control" />
+                                value="<?php echo $_SESSION['SesNome'] ?>" class="form-control" required />
                             <label class="form-label" for="form6Example1">RESPONSÁVEL PELA ALTERAÇÃO</label>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-outline">
                             <input type="text" name="usuariosolicitante" id="usuariosolicitante" class="form-control" />
-                            <label class="form-label" for="form6Example1">Usuario Solicitante</label>
+                            <label class="form-label" for="form6Example1" required>Usuario Solicitante</label>
                         </div>
-                    </div>
-                    <div class="red">
-                        <form action="">
-                            <input type="submit" value="&#128269;" name="solic" id="solic" class="btn mb-4 bnt-licitante">
-                        </form>
                     </div>
                     <div class="col-md-3 col-sm-12">
                         <div class="form-outline">
-                            <input type="text" name="solicitante" id="solicitante" class="form-control" value="<?php $nome ?>" />
-                               
+                            <input type="text" name="solicitante" id="solicitante" class="form-control"
+                                value="<?php $nome ?>" required />
+
                             <label class="form-label" for="form6Example1">Solicitante</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline select-form">
-                            <select class="form-select select-form" aria-label="Default select example" name="unidade"
-                                id="unidade" multiple>
+                            <select class="" aria-label="Default select example" name="unidade"
+                                id="unidade" multiple required>
                                 <?php unidades(); ?>
                             </select>
                             <script>
@@ -147,8 +145,8 @@ include_once 'getdadosusuario.php';
                 <div class="row mb-4">
                     <div class="col">
                         <div class="form-outline select-form">
-                            <select class="form-select select-form" name="ocorrencia" id="ocorrencia"
-                                aria-label="Default select example">
+                            <select class="form-select form-control select-form " name="ocorrencia" id="ocorrencia"
+                                aria-label="Default select example" required>
                                 <option selected></option>
                                 <option value="0">Incluir</option>
                                 <option value="1">Excluir</option>
@@ -160,20 +158,22 @@ include_once 'getdadosusuario.php';
                     <div class="col">
                         <div class="form-outline">
                             <input type="datetime-local" name="dataalteracao" id="dataalteracao" step="1"
-                                class="form-control" />
+                                class="form-control" required />
                             <label class="form-label" for="form6Example1">DATA DA ALTERAÇÃO</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <input type="text" name="nivelatribuido" id="nivelatribuido" class="form-control" />
+                            <select class="form-select form-control select-form" id="permissao" name="permissao" required>
+                                <option value="">Selecione...</option>
+                            </select>
                             <label class="form-label" for="form6Example1">NIVEL DE PERMISSIONAMENTO ATRIBUÍDO</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline select-form">
-                            <select class="form-select select-form" name="situacao" id="situacao"
-                                aria-label="Default select example">
+                            <select class="form-select form-control select-form" name="situacao" id="situacao"
+                                aria-label="Default select example" required>
                                 <option selected></option>
                                 <option value="0">Ativo</option>
                                 <option value="1">Inativo</option>
@@ -185,9 +185,8 @@ include_once 'getdadosusuario.php';
                 </div>
                 <div class="row mb-4">
                     <div class="col-3">
-                        <select class="form-select select-form" name="sistema" id="sistema"
-                            aria-label="Default select example">
-                            <option selected></option>
+                        <select class="form-select form-control select-form" id="sistema" name="sistema" required>
+                            <option selected>Escolha</option>
                             <?php sistemas(); ?>
                         </select>
                         <label class="form-label" for="form6Example1">Sistemas</label>
@@ -211,10 +210,10 @@ include_once 'getdadosusuario.php';
 </html>
 
 <style>
-    .read:read-only {
-        background-color: #f9f9f9;
-        color: #727272;
+    .permissao {
+        display: none;
     }
+
 
     .bnt-licitante {
         background-color: #fff;
@@ -229,6 +228,12 @@ include_once 'getdadosusuario.php';
         margin-left: -63px;
         z-index: 1;
         margin-right: 15px;
+    }
+
+    .readonly {
+        pointer-events: none;
+        background-color: #f9f9f9;
+        color: #727272;
     }
 
     .container {
@@ -300,7 +305,7 @@ include_once 'getdadosusuario.php';
     function getDataHoraAtual() {
         const agora = new Date();
         const ano = agora.getFullYear();
-        const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Adiciona zero à esquerda, se necessário
+        const mes = String(agora.getMonth() + 1).padStart(2, '0');
         const dia = String(agora.getDate()).padStart(2, '0');
         const hora = String(agora.getHours()).padStart(2, '0');
         const minuto = String(agora.getMinutes()).padStart(2, '0');
@@ -311,5 +316,53 @@ include_once 'getdadosusuario.php';
 
     const campoDataHora = document.getElementById('dataalteracao');
     campoDataHora.value = getDataHoraAtual();
+
+    document.getElementById("sistema").addEventListener("change", function () {
+        var select1Value = this.value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "getDados.php?select1Value=" + select1Value, true);
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var select2 = document.getElementById("permissao");
+
+                select2.innerHTML = '<option value="">Selecione...</option>';
+                data.forEach(function (item) {
+                    var option = document.createElement("option");
+                    option.value = item.id;
+                    if (select1Value == 1) {
+                        option.textContent = item.sei;
+                    } else if (select1Value == 2) {
+                        option.textContent = item.simproc;
+                    } else if (select1Value == 3) {
+                        option.textContent = item.sissel;
+                    } else if (select1Value == 4) {
+                        option.textContent = item.aprova_digital;
+                    } else if (select1Value == 5) {
+                        option.textContent = item.slce;
+                    } else if (select1Value == 6) {
+                        option.textContent = item.slcii;
+                    } else if (select1Value == 7) {
+                        option.textContent = item.portal_licenciamento;
+                    } else if (select1Value == 8) {
+                        option.textContent = item.sisacoe;
+                    }
+
+                    select2.appendChild(option);
+                });
+            } else {
+                window.alert("Falha na conexão ao resgatar as premissões");
+            }
+        };
+
+        xhr.send();
+    });
+
+    $(".readonly").keydown(function (e) {
+        e.preventDefault();
+    });
+
 
 </script>
