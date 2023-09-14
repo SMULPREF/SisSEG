@@ -164,7 +164,7 @@ include_once 'addCadastro.php';
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <select class="form-select form-control select-form" id="permissao" name="permissao" required>
+                            <select class="form-select select-form" id="permissao" name="permissao" required>
                                 <option value="">Selecione...</option>
                             </select>
                             <label class="form-label" for="form6Example1">NIVEL DE PERMISSIONAMENTO ATRIBUÍDO</label>
