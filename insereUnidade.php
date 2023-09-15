@@ -46,7 +46,6 @@ if ($resultado->num_rows > 0) {
         if ($resultado_sgu->num_rows > 0) {
             $row_sgu = $resultado_sgu->fetch_assoc();
             $cpnomesetor2 = $row_sgu["cpnomesetor2"];
-
             $sigla_unidade = '';
 
             switch ($cpnomesetor2) {
