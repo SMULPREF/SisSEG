@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 ?>
 
@@ -39,7 +38,6 @@ session_start();
         <button id="alertBtn" class="btn btn-default">Alert</button>
       </div>
     </div>
-
 
     <table id="fresh-table" class="table">
       <thead>

@@ -1,19 +1,11 @@
 <?php
 
-
-
 include_once 'unidades.php';
-
 include 'conexao.php';
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-   
-
     $idfiltro = $_POST['filtro'];
-
 
     if (isset($idfiltro)) {
         $query = "SELECT * FROM historico_log WHERE data_ocorrencia >= NOW() - INTERVAL $idfiltro DAY ORDER BY data_ocorrencia DESC";
@@ -64,9 +56,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 mysqli_close($conn);
-
-
-
-
 
 ?>
