@@ -26,6 +26,8 @@ include_once 'addCadastro.php';
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <?php include_once 'sidebar.php' ?>
+
+    
 </head>
 
 <body>
@@ -76,7 +78,7 @@ include_once 'addCadastro.php';
                     <div class="col">
                         <div class="form-outline">
                             <input type="text" maxlength="0" name="usuario" id="usuario"
-                                value="<?php echo isset($user) ? $user : 'root'; ?>" class="form-control readonly"
+                                value="<?php echo isset($user) ? $user : ''; ?>" class="form-control readonly"
                                 required />
                             <label class="form-label" for="form6Example2">Usuario</label>
                         </div>
@@ -109,22 +111,36 @@ include_once 'addCadastro.php';
                     <div class="col-md-3 col-sm-12">
                         <div class="form-outline">
                             <input type="text" name="responsalvepalteracao" id="responsalvepalteracao"
-                                value="<?php echo $_SESSION['SesNome'] ?>" class="form-control" required />
+                                value="<?php echo $_SESSION['SesNome'];; ?>" class="form-control" required />
                             <label class="form-label" for="form6Example1">RESPONSÁVEL PELA ALTERAÇÃO</label>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-12">
-                        <div class="form-outline">
-                            <input type="text" name="usuariosolicitante" id="usuariosolicitante" class="form-control" />
-                            <label class="form-label" for="form6Example1" required>Usuario Solicitante</label>
+                    <div class="col">
+                        <div class="form-outline select-form">
+                            <select class="" aria-label="Default select example" name="usuariosolicitante" id="usuariosolicitante" required>
+                                <option value="" select>Escolha o usuario</option>
+                                <?php usuarios(); ?>
+                            </select>
+                            <script>
+                                $(function pesquisaSelect() {
+                                    $("#usuariosolicitante").selectize();
+                                });
+                            </script>
+                            <label class="form-label" for="form6Example1">Usuario Solicitante</label>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-12">
-                        <div class="form-outline">
-                            <input type="text" name="solicitante" id="solicitante" class="form-control"
-                                value="<?php $nome ?>" required />
-
-                            <label class="form-label" for="form6Example1">Solicitante</label>
+                    <div class="col">
+                        <div class="form-outline select-form">
+                            <select class="" name="solicitante" id="solicitante" required>
+                                <option value="" select>Escolha o nome do solicitante</option>
+                                <?php solicitantes(); ?>
+                            </select>
+                            <script>
+                                $(function pesquisaSelect() {
+                                    $("#solicitante").selectize();
+                                });
+                            </script>
+                            <label class="form-label" for="form6Example1">SOLICITANTES</label>
                         </div>
                     </div>
                     <div class="col">
@@ -164,7 +180,7 @@ include_once 'addCadastro.php';
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <select class="form-select select-form" id="permissao" name="permissao" required>
+                            <select class="form-select form-control select-form" id="permissao" name="permissao" required>
                                 <option value="">Selecione...</option>
                             </select>
                             <label class="form-label" for="form6Example1">NIVEL DE PERMISSIONAMENTO ATRIBUÍDO</label>
@@ -298,6 +314,28 @@ include_once 'addCadastro.php';
         width: 100%;
         margin: 2px 0;
     }
+
+    .selectize-control.single .selectize-input:after {
+        display: none;
+    }
+
+    .selectize-dropdown, .selectize-input, .selectize-input input {
+    }
+
+    .selectize-input {
+    border: 0px solid #d0d0d0;
+    }
+
+    .selectize-control.single .selectize-input {
+        box-shadow: none;
+        background-color: white;
+        background-image: none;
+        background-repeat: none;
+    }   
+
+    .selectize-control.single .selectize-input, .selectize-dropdown.single {
+    border-color: white;
+    }
 </style>
 
 <script>
@@ -327,27 +365,35 @@ include_once 'addCadastro.php';
             if (xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
                 var select2 = document.getElementById("permissao");
-
+                
                 select2.innerHTML = '<option value="">Selecione...</option>';
                 data.forEach(function (item) {
                     var option = document.createElement("option");
-                    option.value = item.id;
+                    var value = document.createElement("value");
                     if (select1Value == 1) {
                         option.textContent = item.sei;
+                        option.value = item.sei;
                     } else if (select1Value == 2) {
+                        option.value = item.simproc;
                         option.textContent = item.simproc;
                     } else if (select1Value == 3) {
                         option.textContent = item.sissel;
+                        option.value = item.sissel;
                     } else if (select1Value == 4) {
                         option.textContent = item.aprova_digital;
+                        option.value = item.aprova_digital;
                     } else if (select1Value == 5) {
                         option.textContent = item.slce;
+                        option.value = item.slce;
                     } else if (select1Value == 6) {
                         option.textContent = item.slcii;
+                        option.value = item.slcii;
                     } else if (select1Value == 7) {
                         option.textContent = item.portal_licenciamento;
+                        option.value = item.portal_licenciamento;
                     } else if (select1Value == 8) {
                         option.textContent = item.sisacoe;
+                        option.value = item.sisacoe;
                     }
 
                     select2.appendChild(option);

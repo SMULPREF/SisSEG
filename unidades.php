@@ -48,6 +48,22 @@
         }
     }
 
+    function usuarios(){
+
+        include('conexao.php');
+
+        $query = "SELECT id, user FROM servidores";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $id = $row["id"];
+                $sistemas = $row["user"];
+                echo '<option value="' . $id . '">' . $sistemas . '</option>';
+            }
+        }
+    }
+
     function permissao(){
 
         include('conexao.php');

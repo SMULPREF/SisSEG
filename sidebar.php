@@ -15,7 +15,8 @@
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
-            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+            <div class="nav-top"> 
+                <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
                         class="nav_logo-name">SISSEG</span> </a>
 
                 <div class="nav_list"> 
@@ -26,7 +27,7 @@
                     <a href="" class="nav_link"> 
                     <i class='bx bx-user nav_icon'></i> <span class="nav_name">CONTROLE</span> </a> 
 
-                    <a href="http://localhost/SisSEG/templates/historico.php" class="nav_link"> 
+                    <a href="http://localhost/SisSEG/historico.php" class="nav_link"> 
                     <i class='bx bx-list-check nav_icon'></i> <span class="nav_name">HISTORICO</span> </a>
 
                     <a href="http://localhost/SisSEG/principal.php" class="nav_link"> 
@@ -175,7 +176,8 @@
     }
 
     .body-pd {
-        padding-left: calc(var(--nav-width) + 1rem)
+        padding-left: calc(var(--nav-width) + 1rem);
+        
     }
 
     .active {
@@ -217,7 +219,7 @@
 
         .l-navbar {
             left: 0;
-            padding: 1rem 1rem 0 0
+            padding: 1rem 1rem 0 0;
         }
 
         .show {
