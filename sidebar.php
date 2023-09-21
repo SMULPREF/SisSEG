@@ -24,7 +24,7 @@
                     <a href="http://localhost/SisSEG/telaCadastroPermissao.php" class="nav_link active">
                     <i class='bx bx-home nav_icon'></i><span class="nav_name">HOME</span> </a> 
 
-                    <a href="" class="nav_link"> 
+                    <a href="http://localhost/SisSEG/templates/telaControle/tabelaControle.php" class="nav_link"> 
                     <i class='bx bx-user nav_icon'></i> <span class="nav_name">CONTROLE</span> </a> 
 
                     <a href="http://localhost/SisSEG/historico.php" class="nav_link"> 

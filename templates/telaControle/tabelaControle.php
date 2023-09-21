@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!doctype html>
@@ -9,50 +10,39 @@ session_start();
 
   <!-- Style -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+  <link href="../../assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
 
   <!-- Fonts and icons -->
   <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
 
-  <?php include_once 'sidebar.php'; ?>
+  <?php include_once '../../sidebar.php'; ?>
 
 </head>
 
 <body>
-  <div class="fresh-table full-color-orange ">
+  <div class="fresh-table full-color-orange">
     <div class="toolbar">
-      <div class="dis">
-        <form action="" method="post" class="dis">
-          <select class="btn select-filtro" id="filtro" name="filtro" required>
-            <option class="text-center option-escolha" hidden selected>Escolha <span class="span-escolha">&#9660;</span>
-            </option>
-            <option class="text-left" value="1">1 dia</option>
-            <option class="text-left" value="7">7 dias</option>
-            <option class="text-left" value="15">15 dias</option>
-            <option class="text-left" value="30">30 dias</option>
-            <option class="text-left" value="60">60 dias</option>
-          </select>
-          <input type="submit" value="Buscar" id="filtroBotao" name="filtroBotao" class="btn btn-default">
-        </form>
         <button id="alertBtn" class="btn btn-default">Alert</button>
-      </div>
     </div>
 
     <table id="fresh-table" class="table">
       <thead>
-      <th scope="col">SISTEMA</th>
-        <th scope="col">UNIDADE</th>
+        <th scope="col">NOME</th>
+        <th scope="col">RF/RG</th>
         <th scope="col">USUARIO</th>
-        <th scope="col">USUARIO SOLICITANTE</th>
-        <th scope="col">ATRIBUÍÇÃO</th>
-        <th scope="col">SIGLA UNIDADE</th>
-        <th scope="col">NOME USUARIO</th>
-        <th scope="col">SOLICITANTE</th>
-        <th scope="col">OCORRENCIA</th>
-        <th scope="col">data</th>
-        <th scope="col">responsavel</th>
-        <th scope="col">obs</th>
+        <th scope="col">Aprova Digital</th>
+        <th scope="col">Portal de Licenciamento/Anistia</th>
+        <th scope="col">SEI</th>
+        <th scope="col">SIMPROC</th>
+        <th scope="col">SISACOE</th>
+        <th scope="col">SisSEL</th>
+        <th scope="col">SLCE</th>
+        <th scope="col">SLCII</th>
+        <th scope="col">SITUAÇÃO<br> (Ativo/Inativo<br>/Suspenso)</th>
+        <th scope="col">OBSERVAÇÕES</th>
+        <th scope="col">UNIDADE DE TRABALHO</th>
+        <th scope="col">E-MAIL</th>
       </thead>
       <tbody>
         <?php include 'getPessoa.php'; ?>
@@ -139,9 +129,16 @@ session_start();
   box-shadow: 2px 3px 10px #AFA5D9;
 }
 
-.table {
+.table{
   font-size: 12px;
   color: black;
+  text-align: center;
+}
+
+th{
+  font-weight: bold !important;
+  text-align: center;
+  font-size: 12.5px !important;
 }
 
 option {
