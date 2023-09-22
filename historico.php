@@ -41,7 +41,7 @@ session_start();
 
     <table id="fresh-table" class="table">
       <thead>
-      <th scope="col">SISTEMA</th>
+        <th scope="col">SISTEMA</th>
         <th scope="col">UNIDADE</th>
         <th scope="col">USUARIO</th>
         <th scope="col">USUARIO SOLICITANTE</th>

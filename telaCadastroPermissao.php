@@ -27,7 +27,7 @@ include_once 'addCadastro.php';
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <?php include_once 'sidebar.php' ?>
 
-    
+
 </head>
 
 <body>
@@ -75,7 +75,7 @@ include_once 'addCadastro.php';
 
                 <div class="row mb-4">
 
-                    <div class="col">
+                    <div class="col-6">
                         <div class="form-outline">
                             <input type="text" maxlength="0" name="usuario" id="usuario"
                                 value="<?php echo isset($user) ? $user : ''; ?>" class="form-control readonly"
@@ -111,13 +111,15 @@ include_once 'addCadastro.php';
                     <div class="col-md-3 col-sm-12">
                         <div class="form-outline">
                             <input type="text" name="responsalvepalteracao" id="responsalvepalteracao"
-                                value="<?php echo $_SESSION['SesNome'];; ?>" class="form-control" required />
+                                value="<?php echo $_SESSION['SesNome'];
+                                ; ?>" class="form-control" required />
                             <label class="form-label" for="form6Example1">RESPONSÁVEL PELA ALTERAÇÃO</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-outline select-form">
-                            <select class="" aria-label="Default select example" name="usuariosolicitante" id="usuariosolicitante" required>
+                            <select class="" aria-label="Default select example" name="usuariosolicitante"
+                                id="usuariosolicitante" required>
                                 <option value="" select>Escolha o usuario</option>
                                 <?php usuarios(); ?>
                             </select>
@@ -145,8 +147,8 @@ include_once 'addCadastro.php';
                     </div>
                     <div class="col">
                         <div class="form-outline select-form">
-                            <select class="" aria-label="Default select example" name="unidade"
-                                id="unidade" multiple required>
+                            <select class="" aria-label="Default select example" name="unidade" id="unidade" multiple
+                                required>
                                 <?php unidades(); ?>
                             </select>
                             <script>
@@ -171,16 +173,17 @@ include_once 'addCadastro.php';
                         </div>
                         <label class="form-label" for="form6Example1">Ocorrência (incluir/excluir/alteração)</label>
                     </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <input type="datetime-local" name="dataalteracao" id="dataalteracao" step="1"
-                                class="form-control" required />
-                            <label class="form-label" for="form6Example1">DATA DA ALTERAÇÃO</label>
-                        </div>
+                    <div class="col-3">
+                        <select class="form-select form-control select-form" id="sistema" name="sistema" required>
+                            <option selected>Escolha</option>
+                            <?php sistemas(); ?>
+                        </select>
+                        <label class="form-label" for="form6Example1">Sistemas</label>
                     </div>
                     <div class="col">
                         <div class="form-outline">
-                            <select class="form-select form-control select-form" id="permissao" name="permissao" required>
+                            <select class="form-select form-control select-form" id="permissao" name="permissao"
+                                required>
                                 <option value="">Selecione...</option>
                             </select>
                             <label class="form-label" for="form6Example1">NIVEL DE PERMISSIONAMENTO ATRIBUÍDO</label>
@@ -201,11 +204,11 @@ include_once 'addCadastro.php';
                 </div>
                 <div class="row mb-4">
                     <div class="col-3">
-                        <select class="form-select form-control select-form" id="sistema" name="sistema" required>
-                            <option selected>Escolha</option>
-                            <?php sistemas(); ?>
-                        </select>
-                        <label class="form-label" for="form6Example1">Sistemas</label>
+                        <div class="form-outline">
+                            <input type="datetime-local" name="dataalteracao" id="dataalteracao" step="1"
+                                class="form-control" required />
+                            <label class="form-label" for="form6Example1">DATA DA ALTERAÇÃO</label>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-4">
@@ -319,11 +322,12 @@ include_once 'addCadastro.php';
         display: none;
     }
 
-    .selectize-dropdown, .selectize-input, .selectize-input input {
-    }
+    .selectize-dropdown,
+    .selectize-input,
+    .selectize-input input {}
 
     .selectize-input {
-    border: 0px solid #d0d0d0;
+        border: 0px solid #d0d0d0;
     }
 
     .selectize-control.single .selectize-input {
@@ -331,10 +335,11 @@ include_once 'addCadastro.php';
         background-color: white;
         background-image: none;
         background-repeat: none;
-    }   
+    }
 
-    .selectize-control.single .selectize-input, .selectize-dropdown.single {
-    border-color: white;
+    .selectize-control.single .selectize-input,
+    .selectize-dropdown.single {
+        border-color: white;
     }
 </style>
 
@@ -365,7 +370,7 @@ include_once 'addCadastro.php';
             if (xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
                 var select2 = document.getElementById("permissao");
-                
+
                 select2.innerHTML = '<option value="">Selecione...</option>';
                 data.forEach(function (item) {
                     var option = document.createElement("option");
